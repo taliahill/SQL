@@ -1,0 +1,35 @@
+--Create a grocery store database
+
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, section TEXT, price INTEGER, popularity integer);
+
+INSERT INTO store VALUES (1, "sparkling water", "grocery", 3.29, 73);
+INSERT INTO store VALUES (2, "oats", "grocery", 4.19, 51);
+INSERT INTO store VALUES (3, "dog treats", "pets", 12.50, 45);
+INSERT INTO store VALUES (4, "soap", "personal care", 4.99, 42);
+INSERT INTO store VALUES (5, "popcorn", "snacks", 3.19, 67);
+INSERT INTO store VALUES (6, "coffee", "grocery", 9.99, 85);
+INSERT INTO store VALUES (7, "AA batteries", "electronics", 12.49, 33);
+INSERT INTO store VALUES (8, "tortillas", "grocery", 2.99, 77);
+INSERT INTO store VALUES (9, "diced tomatoes", "grocery", 1.00, 71);
+INSERT INTO store VALUES (10, "granola", "grocery", 4.59, 50);
+INSERT INTO store VALUES (11, "carrots", "produce", 1.69, 63);
+INSERT INTO store VALUES (12, "bell peppers", "produce", 1.49, 79);
+INSERT INTO store VALUES (13, "qtips", "personal care", 5.39, 66);
+INSERT INTO store VALUES (14, "cat food", "pets", 25, 67);
+INSERT INTO store VALUES (15, "lentils", "grocery", 1.59,  71);
+
+--dislay the database ordered by price. 
+SELECT * FROM store
+ORDER BY price desc;
+
+--what are the 3 most popular items?
+SELECT item, price, popularity
+FROM store 
+order by popularity desc
+limit 3;
+
+--what is the average price of items in the grocery section?
+SELECT AVG(price) "avg grocery item price"
+FROM store 
+where section = 'grocery';
+
